@@ -1,0 +1,60 @@
+.packt-app	.ts-product-container{
+	text-align:center;
+	position:relative;
+}
+
+.packt-app	.ts-product-container	.ts-product{
+	display: inline-block;
+	float:	left;
+	margin:	10px 40px;
+	width:	200px;
+	background:	#eee;
+	font-weight: bold;
+}
+
+.packt-app	.ts-product-container	.ts-product	.panel-body{
+	background:	#fff;
+}
+
+.packt-app	.ts-product-container	.ts-product	.panel-footer{
+	height:48px;
+	padding: 6px 15px;
+	background:	#fff;
+}
+
+.packt-app	.ts-product-container	.ts-product	img{
+	position: relative;
+	top: 0px;
+}
+
+.packt-app	.ts-product-container	.ts-product	h5{
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	width:100%;
+}
+
+.packt-app	.jumbotron{
+	background:transparent;
+	//padding-left:0px;
+}
+
+.packt-app	.glyphicon.glyphicon-certificate.ts-cost-icon{
+	font-size:50px;
+	z-index:2;
+	position: relative;
+	right: 20px;
+	top: 25px;
+}
+
+.packt-app	.glyphicon.glyphicon-certificate.ts-cost-icon	label{
+	color: #FFA500;
+	font-size: 12px;
+	left: 16px;
+	position: absolute;
+	top: 13px;
+}
+
+#carousel-packt-app	.item{
+	margin-left:25%;
+}
