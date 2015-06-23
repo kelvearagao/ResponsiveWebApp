@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h:form rendered="#{!clientBean.update}">
+		<h3>Cadastrar</h3>
+		<h:panelGrid columns="2" >
+			Nome<h:inputText value="#{clientBean.client.name}"/>
+			Data de nascimento<h:inputText value="#{clientBean.client.birthdate}"/>
+			<h:commandButton action="#{clientBean.add}" value="Cadastrar"/>
+		</h:panelGrid>
+	</h:form>
+	
+	<h:form rendered="#{clientBean.update}">
+		<h3>Editar</h3>
+		<h:panelGrid columns="2" >
+			Id<h:inputText value="#{clientBean.client.id}" disabled="true"/>
+			Nome<h:inputText value="#{clientBean.client.name}"/>
+			Data de nascimento<h:inputText value="#{clientBean.client.birthdate}"/>
+			<h:inputHidden value="#{clientBean.client.id}"/>
+			<h:commandButton action="#{clientBean.update}" value="Atualizar"/>
+		</h:panelGrid>
+	</h:form>
+	
+	<h3>Listagem</h3>
+	<h:form>
+		<table border="1" width="100%">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Data Nasc</th>
+				<th colspan="3">Ação</th>
+			</tr>
+			<ui:repeat var="client" value="#{clientBean.clients}">
+				<tr>
+					<td>#{client.id}</td>
+					<td>#{client.name}</td>
+					<td>#{client.birthdate}</td>
+					<td>Visualizar</td>
+					<td>
+						<h:commandLink action="#{clientBean.edit}">
+							Editar
+							<f:setPropertyActionListener value="#{client}" 
+							target="#{clientBean.client}"/>
+						</h:commandLink>
+					</td>
+					<td>
+						<h:commandLink action="#{clientBean.delete}">
+							Remover
+							<f:setPropertyActionListener value="#{client}" 
+							target="#{clientBean.client}"/>
+						</h:commandLink>
+					</td>
+				</tr>
+			</ui:repeat>
+		</table>
+	</h:form>
+</body>
+</html>
